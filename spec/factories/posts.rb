@@ -6,5 +6,7 @@ FactoryBot.define do
         Faker::Lorem.questions(number: rand(0..2))
       ).shuffle.join(" ")
     }
+
+    user
   end
 end
