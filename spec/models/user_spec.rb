@@ -119,4 +119,8 @@ RSpec.describe User, type: :model do
       expect(subject.errors.to_hash.keys).to_not include :last_name
     end
   end
+
+  context 'Association with Posts' do
+    it { expect(described_class.reflect_on_association(:posts).macro).to eq :has_many }
+  end
 end
