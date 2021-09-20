@@ -1,0 +1,7 @@
+= form_for([@post, @post.comments.build]) do |f|
+  .field
+    = f.label :body
+    %br/
+    = f.text_area :body
+  .actions
+    = f.submit

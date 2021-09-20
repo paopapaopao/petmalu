@@ -1,0 +1,7 @@
+%p
+  %b Comment:
+  = comment.body
+%p
+  = link_to 'Destroy Comment', [comment.post, comment], |
+    :confirm => 'Are you sure?',                        |
+    :method => :delete                                  |
