@@ -33,6 +33,15 @@ pong = User.create(
   approved: true
 )
 
+test = User.create(
+  email: 'test@test.com',
+  password: :qweqwe,
+  confirmed_at: DateTime.now,
+  first_name: :pong,
+  last_name: :pagong,
+  approved: true
+)
+
 4.times do
   FactoryBot.create(:post, user_id: juan.id)
   2.times { FactoryBot.create(:comment, post_id: Post.last.id) }
