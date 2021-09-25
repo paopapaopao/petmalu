@@ -5,9 +5,13 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :posts do
-    resources :comments
+  authenticate :user do
+    resources :posts do
+      resources :comments
+    end
   end
+
+  get 'pets/search' => 'pets#search', as: :pets_search
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 end
