@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'pets/search' => 'pets#search', as: :pets_search
+  get 'pets/search' => 'pets#search', as: :search_pet_path
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 end
