@@ -7,6 +7,7 @@ FactoryBot.define do
       ).shuffle.join(" ")
     }
 
+    user
     post
   end
 end
