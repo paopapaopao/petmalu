@@ -1,0 +1,24 @@
+%nav.navbar.navbar-expand-sm.bg-dark.navbar-dark.fixed-top
+  / Brand/logo
+  %a.navbar-brand{:href => "#"} Petmalu
+  / Links
+  %ul.navbar-nav
+    %li.nav-item
+      %a.nav-link{:href => "/"} Home
+    - if current_user
+      - if current_user.admin
+        %li.nav-item
+          %a.nav-link{:href => "/admin"} Admin
+      %li.nav-item
+        %a.nav-link{:href => "/posts"} Posts
+      %li.nav-item
+        %a.nav-link{:href => "/posts/new"} New Post
+      %li.nav-item
+        %a.nav-link{:href => "#"}= current_user.full_name
+      %li.nav-item
+        %a.nav-link{:href => "/users/sign_out", "data-method" => "delete", :rel => "nofollow"} Sign out
+    - else
+      %li.nav-item
+        %a.nav-link{:href => "/users/sign_up"} Sign up
+      %li.nav-item
+        %a.nav-link{:href => "/users/sign_in"} Sign in
