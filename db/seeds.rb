@@ -11,7 +11,7 @@ User.create(
   password: :password,
   confirmed_at: DateTime.now,
   first_name: :admin,
-  last_name: :admin,
+  last_name: :istrator,
   admin: true,
   approved: true
 )
@@ -44,8 +44,10 @@ test = User.create(
 
 4.times do
   FactoryBot.create(:post, user_id: juan.id)
-  2.times { FactoryBot.create(:comment, user_id: juan.id, post_id: Post.last.id) }
+  FactoryBot.create(:comment, user_id: juan.id, post_id: Post.last.id)
+  FactoryBot.create(:comment, user_id: pong.id, post_id: Post.last.id)
 
   FactoryBot.create(:post, user_id: pong.id)
-  2.times { FactoryBot.create(:comment, user_id: pong.id, post_id: Post.last.id) }
+  FactoryBot.create(:comment, user_id: juan.id, post_id: Post.last.id)
+  FactoryBot.create(:comment, user_id: pong.id, post_id: Post.last.id)
 end
