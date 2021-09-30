@@ -1,7 +1,11 @@
 %p
+  %b Commenter:
+  = comment.user.full_name
+  %br
   %b Comment:
   = comment.body
 %p
+- if policy(comment).destroy?
   = link_to 'Destroy Comment', [comment.post, comment], |
     :confirm => 'Are you sure?',                        |
     :method => :delete                                  |
