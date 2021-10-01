@@ -9,4 +9,9 @@ class User < ApplicationRecord
   validates :last_name, presence: true
 
   has_many :posts
+  has_many :comments
+
+  def full_name
+    "#{first_name.capitalize} #{last_name.capitalize}"
+  end
 end

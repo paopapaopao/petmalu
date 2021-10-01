@@ -123,4 +123,14 @@ RSpec.describe User, type: :model do
   context 'Association with Posts' do
     it { expect(described_class.reflect_on_association(:posts).macro).to eq :has_many }
   end
+
+  context 'Association with Comments' do
+    it { expect(described_class.reflect_on_association(:comments).macro).to eq :has_many }
+  end
+
+  context 'Returns the full name' do
+    it do
+      expect(subject.full_name).to eq "#{subject.first_name.capitalize} #{subject.last_name.capitalize}"
+    end
+  end
 end
