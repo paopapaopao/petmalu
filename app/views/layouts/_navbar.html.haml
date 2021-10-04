@@ -14,7 +14,7 @@
       %li.nav-item
         %a.nav-link{:href => "/posts/new"} New Post
       %li.nav-item
-        %a.nav-link{:href => "#"}= current_user.full_name
+        %a.nav-link{:href => "/users/#{current_user.id}"}= current_user.full_name
       %li.nav-item
         %a.nav-link{:href => "/users/sign_out", "data-method" => "delete", :rel => "nofollow"} Sign out
     - else
