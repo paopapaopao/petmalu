@@ -6,12 +6,16 @@ Rails.application.routes.draw do
   devise_for :users
 
   authenticate :user do
+    get '/users/:id' => 'users#show', as: :user_path
+
     resources :posts do
       resources :comments
     end
+
+    get '/pets/search' => 'pets#search', as: :search_pet_path
   end
 
-  get 'pets/search' => 'pets#search', as: :search_pet_path
-
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  authenticate :user, lambda { |u| u.admin == true } do
+    mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  end
 end
