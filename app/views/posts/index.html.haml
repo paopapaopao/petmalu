@@ -4,6 +4,7 @@
   %thead
     %tr
       %th Content
+      %th Photo
       %th User
       %th
       %th
@@ -13,6 +14,7 @@
     - @posts.each do |post|
       %tr
         %td= post.content
+        %td= image_tag post.photo.url(:medium) if post.photo.present?
         %td= User.find(post.user_id).full_name
         %td= link_to 'Show', post
         %td= link_to 'Edit', edit_post_path(post) if policy(post).update?
