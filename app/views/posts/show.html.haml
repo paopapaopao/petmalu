@@ -4,6 +4,9 @@
   %b Content:
   = @post.content
 
+%p
+  = image_tag @post.photo.url(:medium) if @post.photo.present?
+
 %h2 Comments
 = render @post.comments
 
