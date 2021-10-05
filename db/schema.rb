@@ -30,6 +30,10 @@ ActiveRecord::Schema.define(version: 2021_10_05_062834) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
+    t.string "photo_file_name"
+    t.string "photo_content_type"
+    t.bigint "photo_file_size"
+    t.datetime "photo_updated_at"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
