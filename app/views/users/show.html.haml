@@ -1,0 +1,19 @@
+%h1= @user.full_name
+
+%table.table.table-hover
+  %thead
+    %tr
+      %th Content
+      %th Photo
+      %th
+      %th
+      %th
+
+  %tbody
+    - @user.posts.reverse.each do |post|
+      %tr
+        %td= post.content
+        %td= image_tag post.photo.url(:medium) if post.photo.present?
+        %td= link_to 'Show', post
+        %td= link_to 'Edit', edit_post_path(post) if policy(post).update?
+        %td= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } if policy(post).destroy?
