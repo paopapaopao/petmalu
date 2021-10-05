@@ -10,6 +10,27 @@ class PostsController < ApplicationController
     @posts = policy_scope(Post).reverse
   end
 
+  def upvote
+    @post = Post.find(params[:id])
+    if current_user.voted_up_on? @post
+      @post.unvote_by current_user
+    else
+      @post.upvote_by current_user
+    end
+    render "vote.js.erb"
+  end
+
+  def downvote
+    @post = Post.find(params[:id])
+    if current_user.voted_down_on? @post
+      @post.unvote_by current_user
+    else
+      @post.downvote_by current_user
+    end
+    render "vote.js.erb"
+  end
+
+
   # GET /posts/1 or /posts/1.json
   def show
   end
@@ -72,6 +93,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:content)
+      params.require(:post).permit(:content, :photo)
     end
 end

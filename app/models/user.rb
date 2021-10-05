@@ -16,6 +16,7 @@ class User < ApplicationRecord
   after_create :set_approved_before_update
   after_update :admin_new_user_approval
   after_update :user_approved
+  acts_as_voter
 
   def full_name
     "#{first_name.capitalize} #{last_name.capitalize}"
