@@ -6,6 +6,7 @@
       %th Content
       %th Photo
       %th User
+      %th Like
       %th
       %th
       %th
@@ -16,6 +17,8 @@
         %td= post.content
         %td= image_tag post.photo.url(:medium) if post.photo.present?
         %td= User.find(post.user_id).full_name
+        %td= render "posts/upvote_link", post: post
+        %td= render "posts/downvote_link", post: post
         %td= link_to 'Show', post
         %td= link_to 'Edit', edit_post_path(post) if policy(post).update?
         %td= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } if policy(post).destroy?
