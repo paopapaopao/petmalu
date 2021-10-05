@@ -7,7 +7,11 @@ Rails.application.routes.draw do
 
   authenticate :user do
     resources :posts do
-      resources :comments
+      member do
+        patch "upvote", to: "posts#upvote"
+        patch "downvote", to: "posts#downvote"
+      end
+      # resources :comments
     end
   end
 
