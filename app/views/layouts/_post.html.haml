@@ -26,9 +26,10 @@
             .p-2.px-3
               %span
                 = post.content
-            .feed-image.p-2.px-3
-              %img.img-fluid.img-responsive
-                = image_tag post.photo.url(:medium) if post.photo.present?
+            - if post.photo.present?
+              .feed-image.p-2.px-3
+                %img.img-fluid.img-responsive
+                  = image_tag post.photo.url(:medium)
             .d-flex.justify-content-end.socials.p-2.py-3
               %i.fa.fa-thumbs-up
                 = render "posts/upvote_link", post: post
