@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  # root 'home#index'
+  root 'posts#index'
 
   devise_for :users
 
-  devise_scope :user do
-    root to: "devise/sessions#new"
-  end
+  # devise_scope :user do
+    # root to: "devise/sessions#new"
+  # end
 
   authenticate :user do
     get '/users/:id' => 'users#show', as: :user_path
@@ -17,7 +17,8 @@ Rails.application.routes.draw do
         patch "upvote", to: "posts#upvote"
         patch "downvote", to: "posts#downvote"
       end
-      # resources :comments
+
+      resources :comments
     end
 
     get '/pets/search' => 'pets#search', as: :search_pet_path

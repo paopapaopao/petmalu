@@ -3,8 +3,6 @@
   %a.navbar-brand{:href => "#"} Petmalu
   / Links
   %ul.navbar-nav
-    %li.nav-item
-      %a.nav-link{:href => "/"} Home
     - if current_user
       - if current_user.admin
         %li.nav-item
