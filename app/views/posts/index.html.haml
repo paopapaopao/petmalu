@@ -3,6 +3,11 @@
 %table.table.table-hover
   %thead
     %tr
+<<<<<<< HEAD
+      %th Content
+      %th Photo
+=======
+>>>>>>> 3d9b326d9b70f074b7517a0143b8bec779be3895
       %th User
       %th Content
       %th Photo
@@ -18,7 +23,7 @@
       %tr
         %td= User.find(post.user_id).full_name
         %td= post.content
-        -# %td= image_tag post.photo.url(:medium) if post.photo.present?
+        %td= image_tag post.photo.url(:medium) if post.photo.present?
         %td= User.find(post.user_id).full_name
 
         %td= render "posts/upvote_link", post: post
