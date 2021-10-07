@@ -1,3 +1,19 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+body {
+  background-color: #eee
+}
+
+.socials i {
+  margin-right: 14px;
+  font-size: 17px;
+  color: #d2c8c8;
+  cursor: pointer
+}
+
+.feed-image img {
+  width: 100%;
+  height: auto
+}

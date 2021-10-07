@@ -1,0 +1,74 @@
+- @posts.each do |post|
+  .container.mt-4.mb-5
+    .d-flex.justify-content-center.row
+      .col-md-8
+        .feed.p-2
+          .bg-white.border.mt-2
+            -# user photo, user full name, post methods (show, edit, destroy)
+            .d-flex.flex-row.justify-content-between.align-items-center.p-2.border-bottom
+              .d-flex.flex-row.align-items-center.feed-text.px-2
+                %img.rounded-circle{src: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png", width: "45"}/
+                .d-flex.flex-column.flex-wrap.ml-2
+                  %span.font-weight-bold
+                    = User.find(post.user_id).full_name
+              .dropdown
+                %a{href: "", "data-bs-toggle" => "dropdown"}
+                  .feed-icon.px-2
+                    %i.fa.fa-ellipsis-v.text-black-50
+                %ul.dropdown-menu
+                  %li
+                    %a.dropdown-item{href: "/posts/#{post.id}"} Show
+                  - if policy(post).update?
+                    %li
+                      %a.dropdown-item{href: "/posts/#{post.id}/edit"} Edit
+                  - if policy(post).destroy?
+                    %li
+                      %a.dropdown-item{href: "/posts/#{post.id}", "data-method" => :delete, data: { confirm: 'Are you sure?' } } Destroy
+
+            -# post content
+            .p-2.px-3
+              %span
+                = post.content
+
+            -# post photo
+            - if post.photo.present?
+              .feed-image.p-2.px-3
+                %img.img-fluid.img-responsive
+                  = image_tag post.photo.url(:medium)
+
+            -# like/dislike, comment, share
+            .d-flex.justify-content-end.socials.p-2.py-3.border-bottom
+              %i.fa.fa-thumbs-up
+                = render "posts/upvote_link", post: post
+              %i.fa.fa-thumbs-down
+                = render "posts/downvote_link", post: post
+              %i.fa.fa-comments-o
+              = social_share_button_tag(post.content)
+
+            -# textarea for writing comments
+            .mt-3.d-flex.flex-row.align-items-center.p-3.form-color
+              %img.rounded-circle.mr-2{src: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png", width: "45"}/
+              %input.form-control{placeholder: "Enter your comment...", type: "text"}/
+            .mt-2.text-right
+              %button.btn.btn-primary.btn-sm.shadow-none{type: "button"} Post comment
+              %button.btn.btn-outline-primary.btn-sm.ml-1.shadow-none{type: "button"} Cancel
+
+            -# comments
+            .mt-2
+              - post.comments.each do |comment|
+                .d-flex.flex-row.p-3
+                  %img.rounded-circle.mr-3{height: "40", src: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png", width: "45"}/
+                  .w-100
+                    .d-flex.justify-content-between.align-items-center
+                      .d-flex.flex-row.align-items-center
+                        %span.mr-2
+                          = User.find(post.user_id).full_name
+                    %p.text-justify.comment-text.mb-0
+                      = comment.body
+                    .d-flex.flex-row.user-feed
+                      %span.wish
+                        %i.fa.fa-thumbs-up
+                          = render "posts/upvote_link", post: post
+                      %span.wish
+                        %i.fa.fa-thumbs-up
+                          = render "posts/downvote_link", post: post
