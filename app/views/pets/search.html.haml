@@ -1,51 +1,79 @@
-%link#bootstrap-css{:href => "//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css", :rel => "stylesheet"}/
-%script{:src => "//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"}
-%script{:src => "//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"}
-/ ---- Include the above in your HEAD tag --------
-.container
-  .row.pt-1.pb-1
-    .col-lg-12
-      %h4.text-center Carousel with Three input search
-      %h6.text-center awesome responsive image slider with a search bar
-%section
-  #carouselExampleFade.carousel.slide.carousel-fade{"data-ride" => "carousel"}
-    .carousel-inner
-      .carousel-item.active
-        %img.d-block.w-100{:alt => "...", :src => "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD8b-D_nlSqrow0YZc14K_YJa9jTtZkS2FVH4HoAGDmDFaS4kyxsJWVouG5jCdVqVnFxQ&usqp=CAU"}/
-      .carousel-item
-        %img.d-block.w-100{:alt => "...", :src => "https://www.pawschicago.org/fileadmin/media/images/Foster/2021/Foster_Page_Banner-2021-Right.jpg"}/
-      .carousel-item
-        %img.d-block.w-100{:alt => "...", :src => "https://89d3418c991f5e2860bd-15672119d9b4bc1844e40e82092f0e71.ssl.cf3.rackcdn.com/1582106624_dog_cat_pets.jpg"}/
-      / https://upload.wikimedia.org/wikipedia/commons/8/8d/Yarra_Night_Panorama%2C_Melbourne_-_Feb_2005.jpg
-    %a.carousel-control-prev{"data-slide" => "prev", :href => "#carouselExampleFade", :role => "button"}
-      %span.carousel-control-prev-icon{"aria-hidden" => "true"}
-      %span.sr-only Previous
-    %a.carousel-control-next{"data-slide" => "next", :href => "#carouselExampleFade", :role => "button"}
-      %span.carousel-control-next-icon{"aria-hidden" => "true"}
-      %span.sr-only Next
-%section.search-sec
-  .container
-    %form{:action => "#", :method => "post", :novalidate => "novalidate"}
-      .row
-        .col-lg-12
-          .row
-            .col-lg-3.col-md-3.col-sm-12.p-0
-              %input.form-control.search-slt{:placeholder => "Enter Pickup City", :type => "text"}/
-            .col-lg-3.col-md-3.col-sm-12.p-0
-              %input.form-control.search-slt{:placeholder => "Enter Drop City", :type => "text"}/
-            .col-lg-3.col-md-3.col-sm-12.p-0
-              %select#exampleFormControlSelect1.form-control.search-slt
-                %option Select Vehicle
-                %option Example one
-                %option Example one
-                %option Example one
-                %option Example one
-                %option Example one
-                %option Example one
-            .col-lg-3.col-md-3.col-sm-12.p-0
-              %button.btn.btn-danger.wrn-btn{:type => "button"} Search
 
-
+!!!
+%html
+  %head
+    %link#bootstrap-css{:href => "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css", :rel => "stylesheet"}/
+    %script{:src => "//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"}
+    %script{:src => "//code.jquery.com/jquery-1.11.1.min.js"}
+    / ---- Include the above in your HEAD tag --------
+    %script{:src => "//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js"}
+    %script{:src => "//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js"}
+    %script{:src => "//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js"}
+    %meta{:charset => "UTF-8"}/
+    %meta{:content => "noindex", :name => "robots"}/
+    %link{:href => "//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico", :rel => "shortcut icon", :type => "image/x-icon"}/
+    %link{:color => "#111", :href => "//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg", :rel => "mask-icon", :type => ""}/
+    %link{:href => "https://codepen.io/ericwinton/pen/jqKyyq?depth=everything&order=popularity&page=7&q=product&show_forks=false", :rel => "canonical"}/
+    %link{:href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", :rel => "stylesheet prefetch"}/
+    %style.cp-pen-styles
+      :cdata
+        body {
+        padding-top: 30px;
+        }
+        \.product {
+        margin-bottom: 30px;
+        }
+        \.product-inner {
+        box-shadow: 0 0 10px rgba(0,0,0,.2);
+        padding: 10px;
+        }
+        \.product img {
+        margin-bottom: 10px;
+        }
+  %body
+  %form{action: ""}
+    .container
+      #search.row
+        %form#search-form{:action => "", :enctype => "multipart/form-data", :method => "POST"}
+          .form-group.col-xs-9
+            %input.form-control{:placeholder => "Search Breed", "data-toggle" => "tooltip", :type => "text", title: "Accepts multiple values separated by commas (e.g. breed1,breed2)", "data-placement" => "right"}/
+          .form-group.col-xs-3
+            %button.btn.btn-block.btn-primary{:type => "submit"} Search
+      #filter.row
+        %form
+          .form-group.col-sm-3.col-xs-6
+            %select.filter-make.filter.form-control{"data-filter" => "make"}
+              %option{:value => ""} Select Type
+              %option{value: "dog"} Dog
+              %option{value: "cat"} Cat
+              %option{value: "small-furry"} Small & Furry
+              %option{value: "bird"} Bird
+              %option{value: "scales-fins-other"} Scales, Fins & Other
+              %option{value: "barnyard"} Barnyard
+              %option{value: "rabbit"} Rabbit
+              %option{value: "horse"} Horse
+          .form-group.col-sm-3.col-xs-6
+            %select.filter-model.filter.form-control{"data-filter" => "model"}
+              %option{:value => ""} Select Size
+              %option{:value => ""} Small
+              %option{:value => ""} Medium
+              %option{:value => ""} Large
+              %option{:value => ""} Extra Large
+          .form-group.col-sm-3.col-xs-6
+            %select.filter-type.filter.form-control{"data-filter" => "type"}
+              %option{:value => ""} Select Gender
+              %option{:value => ""} Male
+              %option{:value => ""} Female
+          .form-group.col-sm-3.col-xs-6
+            %select.filter-price.filter.form-control{"data-filter" => "price"}
+              %option{:value => ""} Select Coat
+              %option{:value => ""} Short
+              %option{:value => ""} Medium
+              %option{:value => ""} Long
+              %option{:value => ""} Wire
+              %option{:value => ""} Hairless
+              %option{:value => ""} Curly
+      
 
 
 
