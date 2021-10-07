@@ -9,8 +9,32 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     %link{crossorigin: "anonymous", href: "https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css", integrity: "sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU", rel: "stylesheet"}/
+
+    -# post
+    %link{href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", rel: "stylesheet"}/
   %body
     = render 'layouts/navbar'
     = render 'layouts/alerts'
     = yield
+
     %script{crossorigin: "anonymous", integrity: "sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ", src: "https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"}
+
+    -# aayusin pa
+    -# select to autocomplete
+    %script{src: "jquery-1.11.1.min.js"}
+    %script{src: "jquery-ui.min.js"}
+    %script{src: "jquery.select-to-autocomplete.js"}
+
+    -# aayusin pa
+    -# jQuery-File-Upload
+    %script{src: "node_modules/blueimp-file-upload/js/jquery.fileupload.js"}
+
+    -# aayusin pa
+    -# JavaScript-Load-Image
+    %script{src: "js/load-image.all.min.js"}
+
+    -# posts
+    %script{src: "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"}
+
+    -# jQuery
+    %script{:crossorigin => "anonymous", :integrity => "sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=", :src => "https://code.jquery.com/jquery-3.6.0.js"}
