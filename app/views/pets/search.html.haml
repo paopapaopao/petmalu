@@ -1,3 +1,56 @@
+%link#bootstrap-css{:href => "//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css", :rel => "stylesheet"}/
+%script{:src => "//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"}
+%script{:src => "//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"}
+/ ---- Include the above in your HEAD tag --------
+.container
+  .row.pt-1.pb-1
+    .col-lg-12
+      %h4.text-center Carousel with Three input search
+      %h6.text-center awesome responsive image slider with a search bar
+%section
+  #carouselExampleFade.carousel.slide.carousel-fade{"data-ride" => "carousel"}
+    .carousel-inner
+      .carousel-item.active
+        %img.d-block.w-100{:alt => "...", :src => "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD8b-D_nlSqrow0YZc14K_YJa9jTtZkS2FVH4HoAGDmDFaS4kyxsJWVouG5jCdVqVnFxQ&usqp=CAU"}/
+      .carousel-item
+        %img.d-block.w-100{:alt => "...", :src => "https://www.pawschicago.org/fileadmin/media/images/Foster/2021/Foster_Page_Banner-2021-Right.jpg"}/
+      .carousel-item
+        %img.d-block.w-100{:alt => "...", :src => "https://89d3418c991f5e2860bd-15672119d9b4bc1844e40e82092f0e71.ssl.cf3.rackcdn.com/1582106624_dog_cat_pets.jpg"}/
+      / https://upload.wikimedia.org/wikipedia/commons/8/8d/Yarra_Night_Panorama%2C_Melbourne_-_Feb_2005.jpg
+    %a.carousel-control-prev{"data-slide" => "prev", :href => "#carouselExampleFade", :role => "button"}
+      %span.carousel-control-prev-icon{"aria-hidden" => "true"}
+      %span.sr-only Previous
+    %a.carousel-control-next{"data-slide" => "next", :href => "#carouselExampleFade", :role => "button"}
+      %span.carousel-control-next-icon{"aria-hidden" => "true"}
+      %span.sr-only Next
+%section.search-sec
+  .container
+    %form{:action => "#", :method => "post", :novalidate => "novalidate"}
+      .row
+        .col-lg-12
+          .row
+            .col-lg-3.col-md-3.col-sm-12.p-0
+              %input.form-control.search-slt{:placeholder => "Enter Pickup City", :type => "text"}/
+            .col-lg-3.col-md-3.col-sm-12.p-0
+              %input.form-control.search-slt{:placeholder => "Enter Drop City", :type => "text"}/
+            .col-lg-3.col-md-3.col-sm-12.p-0
+              %select#exampleFormControlSelect1.form-control.search-slt
+                %option Select Vehicle
+                %option Example one
+                %option Example one
+                %option Example one
+                %option Example one
+                %option Example one
+                %option Example one
+            .col-lg-3.col-md-3.col-sm-12.p-0
+              %button.btn.btn-danger.wrn-btn{:type => "button"} Search
+
+
+
+
+
+
+
 %form{action: ""}
   %label{for: "type"} Type
   %select#type{name: "type", required: ""}
