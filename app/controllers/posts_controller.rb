@@ -8,6 +8,7 @@ class PostsController < ApplicationController
   def index
     # @posts = Post.all
     @posts = policy_scope(Post).reverse
+    @post = Post.new
   end
 
   def upvote
