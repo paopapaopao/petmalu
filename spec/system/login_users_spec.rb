@@ -12,11 +12,11 @@ RSpec.describe "LoginUsers", type: :system do
 
   before do
     driven_by(:rack_test)
+    visit root_path
   end
 
   context 'with valid input' do
     it 'fills in valid input' do
-      visit root_path
       expect do
         within 'form' do
           fill_in 'Email', with: existing_user.email
@@ -31,7 +31,6 @@ RSpec.describe "LoginUsers", type: :system do
 
   context 'empty input' do
     it 'clicks on login with out input' do
-      visit root_path
       expect do
         within 'form' do
           fill_in 'Email', with: ""
@@ -46,7 +45,6 @@ RSpec.describe "LoginUsers", type: :system do
 
   context 'invalid input' do
     it 'fills in invalid email format' do
-      visit root_path
       expect do
         within 'form' do
           fill_in 'Email', with: "dwawdadwads"
@@ -62,7 +60,6 @@ RSpec.describe "LoginUsers", type: :system do
 
   context 'invalid input' do
     it 'fills in invalid input' do
-      visit root_path
       expect do
         within 'form' do
           fill_in 'Email', with: "dwawdadwads@yahoo.com"
