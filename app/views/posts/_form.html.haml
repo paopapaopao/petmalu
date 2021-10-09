@@ -6,9 +6,9 @@
         - @post.errors.full_messages.each do |message|
           %li= message
 
-  .field
+  .field.form-group
     = f.label :content
-    = f.text_area :content
+    = f.text_area :content, class: "form-control w-50"
 
   .field
     = f.label :photo
