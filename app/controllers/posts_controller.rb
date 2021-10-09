@@ -8,6 +8,7 @@ class PostsController < ApplicationController
   def index
     # @posts = Post.all
     @posts = policy_scope(Post).reverse
+    @post = Post.new
   end
 
   def upvote
@@ -53,6 +54,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
+        format.js
         format.html { redirect_to @post, notice: "Post was successfully created." }
         format.json { render :show, status: :created, location: @post }
       else
