@@ -1,6 +1,6 @@
 %nav.navbar.navbar-expand-sm.bg-dark.navbar-dark.fixed-top
   / Brand/logo
-  %a.navbar-brand{:href => "#"} Petmalu
+  %a.navbar-brand{:href => ""} Petmalu
   / Links
   %ul.navbar-nav
     - if current_user
@@ -10,13 +10,11 @@
       %li.nav-item
         %a.nav-link{:href => "/posts"} Posts
       %li.nav-item
-        %a.nav-link{:href => "/posts/new"} New Post
-      %li.nav-item
         %a.nav-link{:href => "/pets/search"} Search Pet
       %li.nav-item
         %a.nav-link{:href => "/users/#{current_user.id}"}= current_user.full_name
       %li.nav-item
-        %a.nav-link{:href => "/users/sign_out", "data-method" => "delete", :rel => "nofollow"} Sign out
+        %a.nav-link{:href => "/users/sign_out", "data-method" => "delete", :rel => "nofollow", data: { confirm: 'Are you sure you want to sign out?' } } Sign out
     - else
       %li.nav-item
         %a.nav-link{:href => "/users/sign_up"} Sign up
