@@ -17,8 +17,8 @@
         %a.nav-link{:href => "/users/#{current_user.id}"}= current_user.full_name
       %li.nav-item
         %a.nav-link{:href => "/users/sign_out", "data-method" => "delete", :rel => "nofollow"} Sign out
-    - else
-      %li.nav-item
-        %a.nav-link{:href => "/users/sign_up"} Sign up
-      %li.nav-item
-        %a.nav-link{:href => "/users/sign_in"} Sign in
+    -# - else
+    -#   %li.nav-item
+    -#     %a.nav-link{:href => "/users/sign_up"} Sign up
+    -#   %li.nav-item
+    -#     %a.nav-link{:href => "/users/sign_in"} Sign in
