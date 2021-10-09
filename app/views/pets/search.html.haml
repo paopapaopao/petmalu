@@ -1,272 +1,299 @@
 
-!!!
-%html
-  %head
-    %link#bootstrap-css{:href => "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css", :rel => "stylesheet"}/
-    %script{:src => "//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"}
-    %script{:src => "//code.jquery.com/jquery-1.11.1.min.js"}
-    / ---- Include the above in your HEAD tag --------
-    %script{:src => "//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js"}
-    %script{:src => "//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js"}
-    %script{:src => "//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js"}
-    %meta{:charset => "UTF-8"}/
-    %meta{:content => "noindex", :name => "robots"}/
-    %link{:href => "//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico", :rel => "shortcut icon", :type => "image/x-icon"}/
-    %link{:color => "#111", :href => "//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg", :rel => "mask-icon", :type => ""}/
-    %link{:href => "https://codepen.io/ericwinton/pen/jqKyyq?depth=everything&order=popularity&page=7&q=product&show_forks=false", :rel => "canonical"}/
-    %link{:href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", :rel => "stylesheet prefetch"}/
-    %style.cp-pen-styles
-      :cdata
-        body {
-        padding-top: 30px;
-        }
-        \.product {
-        margin-bottom: 30px;
-        }
-        \.product-inner {
-        box-shadow: 0 0 10px rgba(0,0,0,.2);
-        padding: 10px;
-        }
-        \.product img {
-        margin-bottom: 10px;
-        }
-  %body
-  %form{action: ""}
-    .container
-      #search.row
-        %form#search-form{:action => "", :enctype => "multipart/form-data", :method => "POST"}
-          .form-group.col-xs-9
-            %input.form-control{:placeholder => "Search Breed", "data-toggle" => "tooltip", :type => "text", title: "Accepts multiple values separated by commas (e.g. breed1,breed2)", "data-placement" => "right"}/
-          .form-group.col-xs-3
-            %button.btn.btn-block.btn-primary{:type => "submit"} Search
-      #filter.row
-        %form
-          .form-group.col-sm-3.col-xs-6
-            %select.filter-make.filter.form-control{"data-filter" => "make"}
-              %option{:value => ""} Select Type
-              %option{value: "dog"} Dog
-              %option{value: "cat"} Cat
-              %option{value: "small-furry"} Small & Furry
-              %option{value: "bird"} Bird
-              %option{value: "scales-fins-other"} Scales, Fins & Other
-              %option{value: "barnyard"} Barnyard
-              %option{value: "rabbit"} Rabbit
-              %option{value: "horse"} Horse
-          .form-group.col-sm-3.col-xs-6
-            %select.filter-model.filter.form-control{"data-filter" => "model"}
-              %option{:value => ""} Select Size
-              %option{:value => ""} Small
-              %option{:value => ""} Medium
-              %option{:value => ""} Large
-              %option{:value => ""} Extra Large
-          .form-group.col-sm-3.col-xs-6
-            %select.filter-type.filter.form-control{"data-filter" => "type"}
-              %option{:value => ""} Select Gender
-              %option{:value => ""} Male
-              %option{:value => ""} Female
-          .form-group.col-sm-3.col-xs-6
-            %select.filter-price.filter.form-control{"data-filter" => "price"}
-              %option{:value => ""} Select Coat
-              %option{:value => ""} Short
-              %option{:value => ""} Medium
-              %option{:value => ""} Long
-              %option{:value => ""} Wire
-              %option{:value => ""} Hairless
-              %option{:value => ""} Curly
-      
+-# !!!
+-# %html
+-#   %head
+-#     %link#bootstrap-css{:href => "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css", :rel => "stylesheet"}/
+-#     %script{:src => "//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"}
+-#     %script{:src => "//code.jquery.com/jquery-1.11.1.min.js"}
+-#     / ---- Include the above in your HEAD tag --------
+-#     %script{:src => "//production-assets.codepen.io/assets/editor/live/console_runner-079c09a0e3b9ff743e39ee2d5637b9216b3545af0de366d4b9aad9dc87e26bfd.js"}
+-#     %script{:src => "//production-assets.codepen.io/assets/editor/live/events_runner-73716630c22bbc8cff4bd0f07b135f00a0bdc5d14629260c3ec49e5606f98fdd.js"}
+-#     %script{:src => "//production-assets.codepen.io/assets/editor/live/css_live_reload_init-2c0dc5167d60a5af3ee189d570b1835129687ea2a61bee3513dee3a50c115a77.js"}
+-#     %meta{:charset => "UTF-8"}/
+-#     %meta{:content => "noindex", :name => "robots"}/
+-#     %link{:href => "//production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico", :rel => "shortcut icon", :type => "image/x-icon"}/
+-#     %link{:color => "#111", :href => "//production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg", :rel => "mask-icon", :type => ""}/
+-#     %link{:href => "https://codepen.io/ericwinton/pen/jqKyyq?depth=everything&order=popularity&page=7&q=product&show_forks=false", :rel => "canonical"}/
+-#     %link{:href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", :rel => "stylesheet prefetch"}/
+-#     %style.cp-pen-styles
+-#       :cdata
+-#         body {
+-#         padding-top: 30px;
+-#         }
+-#         \.product {
+-#         margin-bottom: 30px;
+-#         }
+-#         \.product-inner {
+-#         box-shadow: 0 0 10px rgba(0,0,0,.2);
+-#         padding: 10px;
+-#         }
+-#         \.product img {
+-#         margin-bottom: 10px;
+-#         }
+-#   %body
+-#   %form{action: ""}
+-#     .container
+-#       #search.row
+-#         %form#search-form{:action => "", :enctype => "multipart/form-data", :method => "POST"}
+-#           .form-group.col-xs-9
+-#             %input.form-control{:placeholder => "Search Breed", "data-toggle" => "tooltip", :type => "text", title: "Accepts multiple values separated by commas (e.g. breed1,breed2)", "data-placement" => "top"}/
+-#           .form-group.col-xs-3
+-#             %button.btn.btn-block.btn-primary{:type => "submit"} Search
+-#       #filter.row
+-#         %form
+-#           .form-group.col-sm-3.col-xs-6
+-#             %select.filter-make.filter.form-control{"data-filter" => "make"}
+-#               %option{:value => ""} Select Type
+-#               %option{value: "dog"} Dog
+-#               %option{value: "cat"} Cat
+-#               %option{value: "small-furry"} Small & Furry
+-#               %option{value: "bird"} Bird
+-#               %option{value: "scales-fins-other"} Scales, Fins & Other
+-#               %option{value: "barnyard"} Barnyard
+-#               %option{value: "rabbit"} Rabbit
+-#               %option{value: "horse"} Horse
+-#           .form-group.col-sm-3.col-xs-6
+-#             %select.filter-model.filter.form-control{"data-filter" => "model"}
+-#               %option{:value => ""} Select Size
+-#               %option{:value => ""} Small
+-#               %option{:value => ""} Medium
+-#               %option{:value => ""} Large
+-#               %option{:value => ""} Extra Large
+-#           .form-group.col-sm-3.col-xs-6
+-#             %select.filter-type.filter.form-control{"data-filter" => "type"}
+-#               %option{:value => ""} Select Gender
+-#               %option{:value => ""} Male
+-#               %option{:value => ""} Female
+-#           .form-group.col-sm-3.col-xs-6
+-#             %select.filter-price.filter.form-control{"data-filter" => "price"}
+-#               %option{:value => ""} Select Coat
+-#               %option{:value => ""} Short
+-#               %option{:value => ""} Medium
+-#               %option{:value => ""} Long
+-#               %option{:value => ""} Wire
+-#               %option{:value => ""} Hairless
+-#               %option{:value => ""} Curly
 
 
+%form.d-sm-flex.flex-sm-column.p-sm-5.was-validated{action: ""}
+  -# default search
+  .d-sm-flex.flex-sm-column
+    -# type
+    .form-group
+      %label{for: "type"} Type
+      %select#type.form-control{name: "type", required: "true"}
+        %option{value: "", selected: "true", disabled: "true"} Select type
+        %option{value: "dog", "data-alternative-spellings" => "dog"} Dog
+        %option{value: "cat", "data-alternative-spellings" => "cat"} Cat
+        %option{value: "small-furry", "data-alternative-spellings" => "small-furry"} Small & Furry
+        %option{value: "bird", "data-alternative-spellings" => "bird"} Bird
+        %option{value: "scales-fins-other", "data-alternative-spellings" => "scales-fins-other"} Scales, Fins & Other
+        %option{value: "barnyard", "data-alternative-spellings" => "barnyard"} Barnyard
+        %option{value: "rabbit", "data-alternative-spellings" => "rabbit"} Rabbit
+        %option{value: "horse", "data-alternative-spellings" => "horse"} Horse
+      .invalid-feedback Please select one of the options.
+      .valid-feedback Valid.
+    -# breed
+    .form-group
+      %label{for: "breed"} Breed
+      %input#breed.form-control{type: "text", name: "breed", placeholder: "Enter breed", "data-toggle" => "tooltip", title: "Accepts multiple values separated by commas (e.g. breed1,breed2)", "data-placement" => "top", required: "true"}/
+      .invalid-feedback Please fill out this field.
+      .valid-feedback Valid.
 
+  %button.btn.btn-primary{type: "button", "data-toggle" => "collapse", "data-target" => "#advanced-search"} Advanced Search
 
+  -# advanced search
+  #advanced-search.collapse
+    .d-sm-flex.flex-sm-column
+      .d-sm-flex.flex-sm-row.justify-content-sm-around
+        -# size
+        .form-group
+          %label{"data-toggle" => "tooltip", title: "Accepts multiple values", "data-placement" => "top"} Size
+          .form-check
+            %label.form-check-label{for: "size1"}
+              %input#size1.form-check-input{type: "checkbox", name: "size", value: "small"} Small
+          .form-check
+            %label.form-check-label{for: "size2"}
+              %input#size2.form-check-input{type: "checkbox", name: "size", value: "medium"} Medium
+          .form-check
+            %label.form-check-label{for: "size3"}
+              %input#size3.form-check-input{type: "checkbox", name: "size", value: "large"} Large
+          .form-check
+            %label.form-check-label{for: "size4"}
+              %input#size4.form-check-input{type: "checkbox", name: "size", value: "xlarge"} Extra Large
+        -# gender
+        .form-group
+          %label{"data-toggle" => "tooltip", title: "Accepts multiple values", "data-placement" => "top"} Gender
+          .form-check
+            %label.form-check-label{for: "gender1"}
+              %input#gender1.form-check-input{type: "checkbox", name: "gender", value: "male"} Male
+          .form-check
+            %label.form-check-label{for: "gender2"}
+              %input#gender2.form-check-input{type: "checkbox", name: "gender", value: "female"} Female
+        -# age
+        .form-group
+          %label{"data-toggle" => "tooltip", title: "Accepts multiple values", "data-placement" => "top"} Age
+          .form-check
+            %label.form-check-label{for: "age1"}
+              %input#age1.form-check-input{type: "checkbox", name: "age", value: "baby"} Baby
+          .form-check
+            %label.form-check-label{for: "age2"}
+              %input#age2.form-check-input{type: "checkbox", name: "age", value: "young"} Young
+          .form-check
+            %label.form-check-label{for: "age3"}
+              %input#age3.form-check-input{type: "checkbox", name: "age", value: "adult"} Adult
+          .form-check
+            %label.form-check-label{for: "age4"}
+              %input#age4.form-check-input{type: "checkbox", name: "age", value: "senior"} Senior
+        -# coat
+        .form-group
+          %label{"data-toggle" => "tooltip", title: "Accepts multiple values", "data-placement" => "top"} Coat
+          .form-check
+            %label.form-check-label{for: "coat1"}
+              %input#coat1.form-check-input{type: "checkbox", name: "coat", value: "short"} Short
+          .form-check
+            %label.form-check-label{for: "coat2"}
+              %input#coat2.form-check-input{type: "checkbox", name: "coat", value: "medium"} Medium
+          .form-check
+            %label.form-check-label{for: "coat3"}
+              %input#coat3.form-check-input{type: "checkbox", name: "coat", value: "long"} Long
+          .form-check
+            %label.form-check-label{for: "coat4"}
+              %input#coat4.form-check-input{type: "checkbox", name: "coat", value: "wire"} Wire
+          .form-check
+            %label.form-check-label{for: "coat5"}
+              %input#coat5.form-check-input{type: "checkbox", name: "coat", value: "hairless"} Hairless
+          .form-check
+            %label.form-check-label{for: "coat6"}
+              %input#coat6.form-check-input{type: "checkbox", name: "coat", value: "curly"} Curly
+      .d-sm-flex.flex-sm-row.justify-content-sm-around
+        -# color
+        .form-group
+          %label{for: "color"} Color
+          %input#color.form-control{type: "text", name: "color", placeholder: "Enter color"}/
+        -# name
+        .form-group
+          %label{for: "name"} Name
+          %input#name.form-control{type: "text", name: "name", placeholder: "Enter name"}/
+        -# location
+        .form-group
+          %label{for: "location"} Location
+          %input#location.form-control{type: "text", name: "location", placeholder: "Enter location", "data-toggle" => "tooltip", title: "Formats: city,state OR latitude,longitude OR postal code", "data-placement" => "top"}/
+        -# distance
+        .form-group
+          %label{for: "distance"} Distance
+          %input#distance.form-control{type: "number", name: "distance", value: "100", max: "500", "data-toggle" => "tooltip", title: "In miles", "data-placement" => "top"}/
+      -# organization
+      .form-group
+        %label{for: "organization"} Organization
+        %input#organization.form-control{type: "text", name: "organization", placeholder: "Enter organization", "data-toggle" => "tooltip", title: "Accepts multiple values separated by commas (e.g. organization1,organization2)", "data-placement" => "top"}/
+      .d-sm-flex.flex-sm-row.justify-content-sm-around
+        -# good with children
+        .form-group
+          %label Good with children
+          .form-check
+            %label.form-check-label{for: "good_with_children_true"}
+              %input#good_with_children_true.form-check-input{type: "radio", name: "good_with_children", value: "true"} True
+          .form-check
+            %label.form-check-label{for: "good_with_children_false"}
+              %input#good_with_children_false.form-check-input{type: "radio", name: "good_with_children", value: "false"} False
+        -# good with dogs
+        .form-group
+          %label Good with dogs
+          .form-check
+            %label.form-check-label{for: "good_with_dogs_true"}
+              %input#good_with_dogs_true.form-check-input{type: "radio", name: "good_with_dogs", value: "true"} True
+          .form-check
+            %label.form-check-label{for: "good_with_dogs_false"}
+              %input#good_with_dogs_false.form-check-input{type: "radio", name: "good_with_dogs", value: "false"} False
+        -# good with cats
+        .form-group
+          %label Good with cats
+          .form-check
+            %label.form-check-label{for: "good_with_cats_true"}
+              %input#good_with_cats_true.form-check-input{type: "radio", name: "good_with_cats", value: "true"} True
+          .form-check
+            %label.form-check-label{for: "good_with_cats_false"}
+              %input#good_with_cats_false.form-check-input{type: "radio", name: "good_with_cats", value: "false"} False
+      .d-sm-flex.flex-sm-row.justify-content-sm-around
+        -# house trained
+        .form-group
+          %label House trained
+          .form-check
+            %label.form-check-label{for: "house_trained_true"}
+              %input#house_trained_true.form-check-input{type: "radio", name: "house_trained", value: "true"} True
+          .form-check
+            %label.form-check-label{for: "house_trained_false"}
+              %input#house_trained_false.form-check-input{type: "radio", name: "house_trained", value: "false"} False
+        -# declawed
+        .form-group
+          %label Declawed
+          .form-check
+            %label.form-check-label{for: "declawed_true"}
+              %input#declawed_true.form-check-input{type: "radio", name: "declawed", value: "true"} True
+          .form-check
+            %label.form-check-label{for: "declawed_false"}
+              %input#declawed_false.form-check-input{type: "radio", name: "declawed", value: "false"} False
+        -# sepcial needs
+        .form-group
+          %label Special needs
+          .form-check
+            %label.form-check-label{for: "special_needs_true"}
+              %input#special_needs_true.form-check-input{type: "radio", name: "special_needs", value: "true"} True
+          .form-check
+            %label.form-check-label{for: "special_needs_false"}
+              %input#special_needs_false.form-check-input{type: "radio", name: "special_needs", value: "false"} False
+      .d-sm-flex.flex-sm-row.justify-content-sm-around
+        -# sort
+        .form-group
+          %label Sort
+          .form-check
+            %label.form-check-label{for: "sort_most_recent"}
+              %input#sort_most_recent.form-check-input{type: "radio", name: "sort", value: "recent", checked: "true"} Most recent
+          .form-check
+            %label.form-check-label{for: "sort_least_recent"}
+              %input#sort_least_recent.form-check-input{type: "radio", name: "sort", value: "-recent"} Least recent
+          .form-check
+            %label.form-check-label{for: "sort_nearest"}
+              %input#sort_nearest.form-check-input{type: "radio", name: "sort", value: "distance"} Nearest
+          .form-check
+            %label.form-check-label{for: "sort_farthest"}
+              %input#sort_farthest.form-check-input{type: "radio", name: "sort", value: "-distance"} Farthest
+          .form-check
+            %label.form-check-label{for: "random"}
+              %input#random.form-check-input{type: "radio", name: "sort", value: "random"} Random
 
-%form{action: ""}
-  %label{for: "type"} Type
-  %select#type{name: "type", required: ""}
-    %option{value: "", selected: "true", disabled: "true"} Select type
-    %option{value: "dog"} Dog
-    %option{value: "cat"} Cat
-    %option{value: "small-furry"} Small & Furry
-    %option{value: "bird"} Bird
-    %option{value: "scales-fins-other"} Scales, Fins & Other
-    %option{value: "barnyard"} Barnyard
-    %option{value: "rabbit"} Rabbit
-    %option{value: "horse"} Horse
-  %br/
-  %br/
+  %input#reset.btn.btn-warning{type: "reset", value: "Reset"}/
+  %input#submit.btn.btn-success{type: "submit", value: "Search"}/
 
-  %label{for: "breed"} Breed
-  %input#breed{type: "text", name: "breed", placeholder: "Enter breed", "data-toggle" => "tooltip", title: "Accepts multiple values separated by commas (e.g. breed1,breed2)", "data-placement" => "right"}/
-  %br/
-  %br/
+.container-fluid
+  - (0...10).step do |row|
+    .row
+      - (0...2).step do |col|
+        .col-sm-6
+          .card{style: "width:400px"}
+            %img.card-img-top{alt: "No image", src: "#{@pets[2 * row + col].primary_photo_cropped}", style: "width:100%;height:400px"}/
+            .card-body
+              %p.card-title ID: #{@pets[2 * row + col].id}
+              %p.card-title NAME: #{@pets[2 * row + col].name}
+              %p.card-text DESCRIPTION: #{@pets[2 * row + col].description}
+              %p.card-title EMAIL: #{@pets[2 * row + col].contact.email}
+              %p.card-title PHONE: #{@pets[2 * row + col].contact.phone}
+              %p.card-title
+                URL:
+                %a{href: @pets[2 * row + col].url, target: "_blank"} Click me
 
-  %label{"data-toggle" => "tooltip", title: "Accepts multiple values", "data-placement" => "right"} Size
-  %br/
-  %input#size1{type: "checkbox", name: "size", value: "small"}/
-  %label{for: "size1"} Small
-  %br/
-  %input#size2{type: "checkbox", name: "size", value: "medium"}/
-  %label{for: "size2"} Medium
-  %br/
-  %input#size3{type: "checkbox", name: "size", value: "large"}/
-  %label{for: "size3"} Large
-  %br/
-  %input#size4{type: "checkbox", name: "size", value: "xlarge"}/
-  %label{for: "size4"} Extra Large
-  %br/
-  %br/
+:javascript
+  (function($){
+    $(function(){
+      $('select').selectToAutocomplete();
+      $('form').submit(function(){
+        alert( $(this).serialize() );
+        return false;
+      });
+    });
+  })(jQuery);
 
-  %label{"data-toggle" => "tooltip", title: "Accepts multiple values", "data-placement" => "right"} Gender
-  %br/
-  %input#gender1{type: "checkbox", name: "gender", value: "male"}/
-  %label{for: "gender1"} Male
-  %br/
-  %input#gender2{type: "checkbox", name: "gender", value: "female"}/
-  %label{for: "gender2"} Female
-  %br/
-  %br/
-
-  %label{"data-toggle" => "tooltip", title: "Accepts multiple values", "data-placement" => "right"} Age
-  %br/
-  %input#age1{type: "checkbox", name: "age", value: "baby"}/
-  %label{for: "age1"} Baby
-  %br/
-  %input#age2{type: "checkbox", name: "age", value: "young"}/
-  %label{for: "age2"} Young
-  %br/
-  %input#age3{type: "checkbox", name: "age", value: "adult"}/
-  %label{for: "age3"} Adult
-  %br/
-  %input#age4{type: "checkbox", name: "age", value: "senior"}/
-  %label{for: "age4"} Senior
-  %br/
-  %br/
-
-  %label{for: "color"} Color
-  %input#color{type: "text", name: "color", placeholder: "Enter color"}/
-  %br/
-  %br/
-
-  %label{"data-toggle" => "tooltip", title: "Accepts multiple values", "data-placement" => "right"} Coat
-  %br/
-  %input#coat1{type: "checkbox", name: "coat", value: "short"}/
-  %label{for: "coat1"} Short
-  %br/
-  %input#coat2{type: "checkbox", name: "coat", value: "medium"}/
-  %label{for: "coat2"} Medium
-  %br/
-  %input#coat3{type: "checkbox", name: "coat", value: "long"}/
-  %label{for: "coat3"} Long
-  %br/
-  %input#coat4{type: "checkbox", name: "coat", value: "wire"}/
-  %label{for: "coat4"} Wire
-  %br/
-  %input#coat5{type: "checkbox", name: "coat", value: "hairless"}/
-  %label{for: "coat5"} Hairless
-  %br/
-  %input#coat6{type: "checkbox", name: "coat", value: "curly"}/
-  %label{for: "coat6"} Curly
-  %br/
-  %br/
-
-  %label{for: "name"} Name
-  %input#name{type: "text", name: "name", placeholder: "Enter name"}/
-  %br/
-  %br/
-
-  %label{for: "organization"} Organization
-  %input#organization{type: "text", name: "organization", placeholder: "Enter organization", "data-toggle" => "tooltip", title: "Accepts multiple values separated by commas (e.g. organization1,organization2)", "data-placement" => "right"}/
-  %br/
-  %br/
-
-  %label Attributes
-  %br/
-  %label Good with children
-  %br/
-  %input#good_with_children_true{type: "radio", name: "good_with_children", value: "true"}/
-  %label{for: "good_with_children_true"} True
-  %input#good_with_children_false{type: "radio", name: "good_with_children", value: "false"}/
-  %label{for: "good_with_children_false"} False
-  %br/
-  %label Good with dogs
-  %br/
-  %input#good_with_dogs_true{type: "radio", name: "good_with_dogs", value: "true"}/
-  %label{for: "good_with_dogs_true"} True
-  %input#good_with_dogs_false{type: "radio", name: "good_with_dogs", value: "false"}/
-  %label{for: "good_with_dogs_false"} False
-  %br/
-  %label Good with cats
-  %br/
-  %input#good_with_cats_true{type: "radio", name: "good_with_cats", value: "true"}/
-  %label{for: "good_with_cats_true"} True
-  %input#good_with_cats_false{type: "radio", name: "good_with_cats", value: "false"}/
-  %label{for: "good_with_cats_false"} False
-  %br/
-  %label House trained
-  %br/
-  %input#house_trained_true{type: "radio", name: "house_trained", value: "true"}/
-  %label{for: "house_trained_true"} True
-  %input#house_trained_false{type: "radio", name: "house_trained", value: "false"}/
-  %label{for: "house_trained_false"} False
-  %br/
-  %label Declawed
-  %br/
-  %input#declawed_true{type: "radio", name: "declawed", value: "true"}/
-  %label{for: "declawed_true"} True
-  %input#declawed_false{type: "radio", name: "declawed", value: "false"}/
-  %label{for: "declawed_false"} False
-  %br/
-  %label Special needs
-  %br/
-  %input#special_needs_true{type: "radio", name: "special_needs", value: "true"}/
-  %label{for: "special_needs_true"} True
-  %input#special_needs_false{type: "radio", name: "special_needs", value: "false"}/
-  %label{for: "special_needs_false"} False
-  %br/
-  %br/
-
-  %label{for: "location"} Location
-  %input#location{type: "text", name: "location", placeholder: "Enter location", "data-toggle" => "tooltip", title: "Formats: city,state OR latitude,longitude OR postal code", "data-placement" => "right"}/
-  %br/
-  %br/
-
-  %label{for: "distance"} Distance
-  %input#distance{type: "number", name: "distance", value: "100", max: "500", "data-toggle" => "tooltip", title: "In miles", "data-placement" => "right"}/
-  %br/
-  %br/
-
-  %label Sort
-  %br/
-  %input#sort_most_recent{type: "radio", name: "sort", value: "recent", checked: "true"}/
-  %label{for: "sort_most_recent"} Most recent
-  %input#sort_least_recent{type: "radio", name: "sort", value: "-recent"}/
-  %label{for: "sort_least_recent"} Least recent
-  %input#sort_nearest{type: "radio", name: "sort", value: "distance"}/
-  %label{for: "sort_nearest"} Nearest
-  %input#sort_farthest{type: "radio", name: "sort", value: "-distance"}/
-  %label{for: "sort_farthest"} Farthest
-  %input#random{type: "radio", name: "sort", value: "random"}/
-  %label{for: "random"} Random
-  %br/
-  %br/
-
-  %input#reset{type: "reset", value: "Reset"}/
-  %input#submit{type: "submit", value: "Search"}/
-
-- @pets.each do |pet|
-  .card{style: "width:400px"}
-    %label
-      ID: #{pet.id}
-    %label
-      NAME: #{pet.name}
-    %label
-      DESCRIPTION: #{pet.description}
-    %label
-      URL:
-      %a{href: pet.url} Click me
-    %label
-      EMAIL: #{pet.contact.email}
-    %label
-      PHONE: #{pet.contact.phone}
-
-    %img.card-img-top{src: "#{pet.primary_photo_cropped}"}
-  %br/
+%script{src: "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"}
+%script{src: "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"}
+%script{src: "https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"}
