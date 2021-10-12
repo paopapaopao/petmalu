@@ -34,11 +34,51 @@ pong = User.create(
 )
 
 4.times do
-  FactoryBot.create(:post, user_id: juan.id)
-  FactoryBot.create(:comment, user_id: juan.id, post_id: Post.last.id)
-  FactoryBot.create(:comment, user_id: pong.id, post_id: Post.last.id)
+  Post.create(
+    content: (
+      Faker::Lorem.sentences(number: rand(3..9)) +
+      Faker::Lorem.questions(number: rand(0..2))
+    ).shuffle.join(" "),
+    user_id: juan.id
+  )
+  Comment.create(
+    body: (
+      Faker::Lorem.sentences(number: rand(2..16)) +
+      Faker::Lorem.questions(number: rand(0..4))
+    ).shuffle.join(" "),
+    user_id: juan.id,
+    post_id: Post.last.id
+  )
+  Comment.create(
+    body: (
+      Faker::Lorem.sentences(number: rand(2..16)) +
+      Faker::Lorem.questions(number: rand(0..4))
+    ).shuffle.join(" "),
+    user_id: pong.id,
+    post_id: Post.last.id
+  )
 
-  FactoryBot.create(:post, user_id: pong.id)
-  FactoryBot.create(:comment, user_id: juan.id, post_id: Post.last.id)
-  FactoryBot.create(:comment, user_id: pong.id, post_id: Post.last.id)
+  Post.create(
+    content: (
+      Faker::Lorem.sentences(number: rand(3..9)) +
+      Faker::Lorem.questions(number: rand(0..2))
+    ).shuffle.join(" "),
+    user_id: juan.id
+  )
+  Comment.create(
+    body: (
+      Faker::Lorem.sentences(number: rand(2..16)) +
+      Faker::Lorem.questions(number: rand(0..4))
+    ).shuffle.join(" "),
+    user_id: juan.id,
+    post_id: Post.last.id
+  )
+  Comment.create(
+    body: (
+      Faker::Lorem.sentences(number: rand(2..16)) +
+      Faker::Lorem.questions(number: rand(0..4))
+    ).shuffle.join(" "),
+    user_id: pong.id,
+    post_id: Post.last.id
+  )
 end
