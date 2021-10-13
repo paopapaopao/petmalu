@@ -10,8 +10,9 @@
     #collapsible-navbar.collapse.navbar-collapse.justify-content-around
       -# form
       %form.d-flex
-        %input.form-control.me-2{type: "text", placeholder: "Search"}/
-        = button_to 'Search', {type: "button"}, class: "btn btn-success"
+        .input-group
+          %input.form-control{type: "text", placeholder: "Search"}/
+          = button_to 'Search', {type: "button"}, class: "btn btn-success"
       -# links
       %ul.navbar-nav
         - if current_user
