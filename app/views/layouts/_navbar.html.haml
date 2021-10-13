@@ -1,22 +1,57 @@
-%nav.navbar.navbar-expand-sm.bg-dark.navbar-dark.fixed-top
-  / Brand/logo
-  %a.navbar-brand{:href => ""} Petmalu
-  / Links
-  %ul.navbar-nav
-    - if current_user
-      - if current_user.admin
-        %li.nav-item
-          %a.nav-link{:href => "/admin"} Admin
-      %li.nav-item
-        %a.nav-link{:href => "/posts"} Posts
-      %li.nav-item
-        %a.nav-link{:href => "/pets/search"} Search Pet
-      %li.nav-item
-        %a.nav-link{:href => "/users/#{current_user.id}"}= current_user.full_name
-      %li.nav-item
-        %a.nav-link{:href => "/users/sign_out", "data-method" => "delete", :rel => "nofollow", data: { confirm: 'Are you sure you want to sign out?' } } Sign out
-    - else
-      %li.nav-item
-        %a.nav-link{:href => "/users/sign_up"} Sign up
-      %li.nav-item
-        %a.nav-link{:href => "/users/sign_in"} Sign in
+-# %nav.navbar.navbar-expand-sm.bg-dark.navbar-dark.fixed-top
+-#   / Links
+-#   %ul.navbar-nav
+-#     - if current_user
+-#       - if current_user.admin
+-#         %li.nav-item
+-#           %a.nav-link{:href => "/admin"} Admin
+-#       %li.nav-item
+-#         %a.nav-link{:href => "/users/#{current_user.id}"}= current_user.full_name
+-#       %li.nav-item
+-#         %a.nav-link{:href => "/users/sign_out", "data-method" => "delete", :rel => "nofollow", data: { confirm: 'Are you sure you want to sign out?' } } Sign out
+-#     - else
+-#       %li.nav-item
+-#         %a.nav-link{:href => "/users/sign_up"} Sign up
+-#       %li.nav-item
+-#         %a.nav-link{:href => "/users/sign_in"} Sign in
+
+.navbar.bg-dark.navbar-dark.fixed-top.navbar-expand-sm
+  .container-fluid
+    -# brand/logo
+    %a.navbar-brand{href: root_path}
+      %img.rounded-pill{src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsZkAkROMdg-a4RigHw3hAo2Veoat8AiNqPA&usqp=CAU", alt: "Brand/Logo", style: "width:40px;"}/
+    -# collapsible navbar toggler
+    %button.navbar-toggler{type: "button", "data-bs-toggle" => "collapse", "data-bs-target" => "#collapsible-navbar"}
+      %span.navbar-toggler-icon
+    -# collapsible navbar
+    #collapsible-navbar.collapse.navbar-collapse.justify-content-around
+      -# form
+      %form.d-flex
+        %input.form-control.me-2{type: "text", placeholder: "Search"}/
+        = button_to 'Search', {type: "button"}, class: "btn btn-success"
+      -# links
+      %ul.navbar-nav
+        - if current_user
+          - if current_user.admin
+            %li.nav-item
+              = link_to 'Admin', rails_admin_path, class: "nav-link"
+          %li.nav-item
+            = link_to 'Posts', posts_path, class: "nav-link"
+          %li.nav-item
+            = link_to 'Search pet', search_pet_path, class: "nav-link"
+          %li.nav-item.dropdown
+            = link_to 'Account', "#", role: "button", "data-bs-toggle" => "dropdown", class: "nav-link dropdown-toggle"
+            %ul.dropdown-menu
+              %li
+                = link_to current_user.full_name, user_path(current_user), class: "dropdown-item"
+              %li
+                = link_to 'Sign out', destroy_user_session_path, "data-method" => "delete", rel: "nofollow", data: { confirm: 'Are you sure you want to sign out?' }, class: "dropdown-item"
+          %li.nav-item
+            = link_to current_user.full_name, user_path(current_user), class: "nav-link"
+          %li.nav-item
+            = link_to 'Sign out', destroy_user_session_path, "data-method" => "delete", rel: "nofollow", data: { confirm: 'Are you sure you want to sign out?' }, class: "nav-link"
+        - else
+          %li.nav-item
+            = link_to 'Sign in', new_user_session_path, class: "nav-link"
+          %li.nav-item
+            = link_to 'Sign up', new_user_registration_path, class: "nav-link"
