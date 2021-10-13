@@ -17,7 +17,7 @@ Rails.application.routes.draw do
       resources :comments
     end
 
-    get '/pets/search' => 'pets#search', as: :search_pet_path
+    get '/pets/search' => 'pets#search', as: :search_pet
   end
 
   authenticate :user, lambda { |u| u.admin == true } do
