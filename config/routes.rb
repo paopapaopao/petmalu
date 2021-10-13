@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   authenticate :user do
     root 'posts#index'
 
-    get '/users/:id' => 'users#show', as: :user_path
+    get '/users/:id' => 'users#show', as: :user
 
     resources :posts do
       member do
