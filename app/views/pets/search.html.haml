@@ -2,34 +2,23 @@
   %form.d-sm-flex.flex-sm-column.p-sm-5.was-validated{action: ""}
     -# default search
     .input-group.my-2
+      -# type
       %select#type.form-control{name: "type", required: "true"}
         %option{value: "", selected: "true", disabled: "true"} Select type
-        %option{value: "dog", "data-alternative-spellings" => "dog"} Dog
-        %option{value: "cat", "data-alternative-spellings" => "cat"} Cat
-        %option{value: "small-furry", "data-alternative-spellings" => "small-furry"} Small & Furry
-        %option{value: "bird", "data-alternative-spellings" => "bird"} Bird
-        %option{value: "scales-fins-other", "data-alternative-spellings" => "scales-fins-other"} Scales, Fins & Other
         %option{value: "barnyard", "data-alternative-spellings" => "barnyard"} Barnyard
-        %option{value: "rabbit", "data-alternative-spellings" => "rabbit"} Rabbit
+        %option{value: "bird", "data-alternative-spellings" => "bird"} Bird
+        %option{value: "cat", "data-alternative-spellings" => "cat"} Cat
+        %option{value: "dog", "data-alternative-spellings" => "dog"} Dog
         %option{value: "horse", "data-alternative-spellings" => "horse"} Horse
-      %input#breed.form-control{type: "text", name: "breed", placeholder: "Enter breed", "data-toggle" => "tooltip", title: "Accepts multiple values separated by commas (e.g. breed1,breed2)", "data-placement" => "top", required: "true"}/
+        %option{value: "rabbit", "data-alternative-spellings" => "rabbit"} Rabbit
+        %option{value: "scales-fins-other", "data-alternative-spellings" => "scales-fins-other"} Scales, Fins & Other
+        %option{value: "small-furry", "data-alternative-spellings" => "small-furry"} Small & Furry
+      -# breed
+      %input#breed.form-control{type: "text", name: "breed", placeholder: "Enter breed", "data-toggle" => "tooltip", title: "Accepts multiple values separated by commas (e.g. breed1,breed2)", "data-placement" => "top"}/
     -# .d-sm-flex.flex-sm-column
-    -#   -# type
     -#   .my-2
-    -#     %label{for: "type"} Type
-    -#     %select#type.form-control{name: "type", required: "true"}
-    -#       %option{value: "", selected: "true", disabled: "true"} Select type
-    -#       %option{value: "dog", "data-alternative-spellings" => "dog"} Dog
-    -#       %option{value: "cat", "data-alternative-spellings" => "cat"} Cat
-    -#       %option{value: "small-furry", "data-alternative-spellings" => "small-furry"} Small & Furry
-    -#       %option{value: "bird", "data-alternative-spellings" => "bird"} Bird
-    -#       %option{value: "scales-fins-other", "data-alternative-spellings" => "scales-fins-other"} Scales, Fins & Other
-    -#       %option{value: "barnyard", "data-alternative-spellings" => "barnyard"} Barnyard
-    -#       %option{value: "rabbit", "data-alternative-spellings" => "rabbit"} Rabbit
-    -#       %option{value: "horse", "data-alternative-spellings" => "horse"} Horse
     -#     .invalid-feedback Please select one of the options.
     -#     .valid-feedback Valid.
-    -#   -# breed
     -#   .my-2
     -#     %label{for: "breed"} Breed
     -#     %input#breed.form-control{type: "text", name: "breed", placeholder: "Enter breed", "data-toggle" => "tooltip", title: "Accepts multiple values separated by commas (e.g. breed1,breed2)", "data-placement" => "top", required: "true"}/
@@ -41,160 +30,181 @@
     -# advanced search
     #advanced-search.collapse
       .d-sm-flex.flex-sm-column
-        .my-2
-          .row
-            .col
-              -# size
-              .my-2
-                %label{"data-toggle" => "tooltip", title: "Accepts multiple values", "data-placement" => "top"} Size
-                .form-check
-                  %input#size1.form-check-input{type: "checkbox", name: "size", value: "small"}
-                  %label.form-check-label{for: "size1"} Small
-                .form-check
-                  %input#size2.form-check-input{type: "checkbox", name: "size", value: "medium"}
-                  %label.form-check-label{for: "size2"} Medium
-                .form-check
-                  %input#size3.form-check-input{type: "checkbox", name: "size", value: "large"}
-                  %label.form-check-label{for: "size3"} Large
-                .form-check
-                  %input#size4.form-check-input{type: "checkbox", name: "size", value: "xlarge"}
-                  %label.form-check-label{for: "size4"} Extra Large
-            .col
-              -# gender
-              .my-2
-                %label{"data-toggle" => "tooltip", title: "Accepts multiple values", "data-placement" => "top"} Gender
-                .form-check
-                  %input#gender1.form-check-input{type: "checkbox", name: "gender", value: "male"}
-                  %label.form-check-label{for: "gender1"} Male
-                .form-check
-                  %input#gender2.form-check-input{type: "checkbox", name: "gender", value: "female"}
-                  %label.form-check-label{for: "gender2"} Female
-            .col
-              -# age
-              .my-2
-                %label{"data-toggle" => "tooltip", title: "Accepts multiple values", "data-placement" => "top"} Age
-                .form-check
-                  %input#age1.form-check-input{type: "checkbox", name: "age", value: "baby"}
-                  %label.form-check-label{for: "age1"} Baby
-                .form-check
-                  %input#age2.form-check-input{type: "checkbox", name: "age", value: "young"}
-                  %label.form-check-label{for: "age2"} Young
-                .form-check
-                  %input#age3.form-check-input{type: "checkbox", name: "age", value: "adult"}
-                  %label.form-check-label{for: "age3"} Adult
-                .form-check
-                  %input#age4.form-check-input{type: "checkbox", name: "age", value: "senior"}
-                  %label.form-check-label{for: "age4"} Senior
-            .col
-              -# coat
-              .my-2
-                %label{"data-toggle" => "tooltip", title: "Accepts multiple values", "data-placement" => "top"} Coat
-                .form-check
-                  %input#coat1.form-check-input{type: "checkbox", name: "coat", value: "short"}
-                  %label.form-check-label{for: "coat1"} Short
-                .form-check
-                  %input#coat2.form-check-input{type: "checkbox", name: "coat", value: "medium"}
-                  %label.form-check-label{for: "coat2"} Medium
-                .form-check
-                  %input#coat3.form-check-input{type: "checkbox", name: "coat", value: "long"}
-                  %label.form-check-label{for: "coat3"} Long
-                .form-check
-                  %input#coat4.form-check-input{type: "checkbox", name: "coat", value: "wire"}
-                  %label.form-check-label{for: "coat4"} Wire
-                .form-check
-                  %input#coat5.form-check-input{type: "checkbox", name: "coat", value: "hairless"}
-                  %label.form-check-label{for: "coat5"} Hairless
-                .form-check
-                  %input#coat6.form-check-input{type: "checkbox", name: "coat", value: "curly"}
-                  %label.form-check-label{for: "coat6"} Curly
-        .my-2
-          .row
-            .col
-              -# color
-              .my-2
-                %label{for: "color"} Color
-                %input#color.form-control{type: "text", name: "color", placeholder: "Enter color"}/
-            .col
-              -# name
-              .my-2
-                %label{for: "name"} Name
-                %input#name.form-control{type: "text", name: "name", placeholder: "Enter name"}/
-            .col
-              -# location
-              .my-2
-                %label{for: "location"} Location
-                %input#location.form-control{type: "text", name: "location", placeholder: "Enter location", "data-toggle" => "tooltip", title: "Formats: city,state OR latitude,longitude OR postal code", "data-placement" => "top"}/
-            .col
-              -# distance
-              .my-2
-                %label{for: "distance"} Distance
-                %input#distance.form-control{type: "number", name: "distance", value: "100", max: "500", "data-toggle" => "tooltip", title: "In miles", "data-placement" => "top"}/
+        .row
+          .col-sm
+            -# size
+            .my-2
+              %label{"data-toggle" => "tooltip", title: "Accepts multiple values", "data-placement" => "top"} Size
+              .form-check
+                %input#size1.form-check-input{type: "checkbox", name: "size", value: "small"}
+                %label.form-check-label{for: "size1"} Small
+              .form-check
+                %input#size2.form-check-input{type: "checkbox", name: "size", value: "medium"}
+                %label.form-check-label{for: "size2"} Medium
+              .form-check
+                %input#size3.form-check-input{type: "checkbox", name: "size", value: "large"}
+                %label.form-check-label{for: "size3"} Large
+              .form-check
+                %input#size4.form-check-input{type: "checkbox", name: "size", value: "xlarge"}
+                %label.form-check-label{for: "size4"} Extra Large
+          .col-sm
+            -# gender
+            .my-2
+              %label{"data-toggle" => "tooltip", title: "Accepts multiple values", "data-placement" => "top"} Gender
+              .form-check
+                %input#gender1.form-check-input{type: "checkbox", name: "gender", value: "male"}
+                %label.form-check-label{for: "gender1"} Male
+              .form-check
+                %input#gender2.form-check-input{type: "checkbox", name: "gender", value: "female"}
+                %label.form-check-label{for: "gender2"} Female
+          .col-sm
+            -# age
+            .my-2
+              %label{"data-toggle" => "tooltip", title: "Accepts multiple values", "data-placement" => "top"} Age
+              .form-check
+                %input#age1.form-check-input{type: "checkbox", name: "age", value: "baby"}
+                %label.form-check-label{for: "age1"} Baby
+              .form-check
+                %input#age2.form-check-input{type: "checkbox", name: "age", value: "young"}
+                %label.form-check-label{for: "age2"} Young
+              .form-check
+                %input#age3.form-check-input{type: "checkbox", name: "age", value: "adult"}
+                %label.form-check-label{for: "age3"} Adult
+              .form-check
+                %input#age4.form-check-input{type: "checkbox", name: "age", value: "senior"}
+                %label.form-check-label{for: "age4"} Senior
+          .col-sm
+            -# coat
+            .my-2
+              %label{"data-toggle" => "tooltip", title: "Accepts multiple values", "data-placement" => "top"} Coat
+              .form-check
+                %input#coat1.form-check-input{type: "checkbox", name: "coat", value: "short"}
+                %label.form-check-label{for: "coat1"} Short
+              .form-check
+                %input#coat2.form-check-input{type: "checkbox", name: "coat", value: "medium"}
+                %label.form-check-label{for: "coat2"} Medium
+              .form-check
+                %input#coat3.form-check-input{type: "checkbox", name: "coat", value: "long"}
+                %label.form-check-label{for: "coat3"} Long
+              .form-check
+                %input#coat4.form-check-input{type: "checkbox", name: "coat", value: "wire"}
+                %label.form-check-label{for: "coat4"} Wire
+              .form-check
+                %input#coat5.form-check-input{type: "checkbox", name: "coat", value: "hairless"}
+                %label.form-check-label{for: "coat5"} Hairless
+              .form-check
+                %input#coat6.form-check-input{type: "checkbox", name: "coat", value: "curly"}
+                %label.form-check-label{for: "coat6"} Curly
+        .row
+          .col-sm
+            -# color
+            .form-floating.my-2
+              %input#color.form-control{type: "text", name: "color", placeholder: "Enter color"}/
+              %label{for: "color"} Color
+          .col-sm
+            -# name
+            .form-floating.my-2
+              %input#name.form-control{type: "text", name: "name", placeholder: "Enter name"}/
+              %label{for: "name"} Name
+          .col-sm
+            -# location
+            .form-floating.my-2
+              %input#location.form-control{type: "text", name: "location", placeholder: "Enter location", "data-toggle" => "tooltip", title: "Formats: city,state OR latitude,longitude OR postal code", "data-placement" => "top"}/
+              %label{for: "location"} Location
+          .col-sm
+            -# distance
+            .form-floating.my-2
+              %input#distance.form-control{type: "number", name: "distance", value: "100", max: "500", placeholder: "Enter distance", "data-toggle" => "tooltip", title: "In miles", "data-placement" => "top"}/
+              %label{for: "distance"} Distance
         -# organization
-        .my-2
-          %label{for: "organization"} Organization
-          %input#organization.form-control{type: "text", name: "organization", placeholder: "Enter organization", "data-toggle" => "tooltip", title: "Accepts multiple values separated by commas (e.g. organization1,organization2)", "data-placement" => "top"}/
-        .my-2
-          .row
-            .col
-              -# good with children
-              .my-2
-                .form-check.form-switch
-                  %input#good_with_children_true.form-check-input{type: "checkbox", name: "good_with_children", value: "true"}
-                  %label.form-check-label{for: "good_with_children_true"} Good with children
-            .col
-              -# good with dogs
-              .my-2
-                .form-check.form-switch
-                  %input#good_with_dogs_true.form-check-input{type: "checkbox", name: "good_with_dogs", value: "true"}
-                  %label.form-check-label{for: "good_with_dogs_true"} Good with dogs
-            .col
-              -# good with cats
-              .my-2
-                .form-check.form-switch
-                  %input#good_with_cats_true.form-check-input{type: "checkbox", name: "good_with_cats", value: "true"}
-                  %label.form-check-label{for: "good_with_cats_true"} Good with cats
-        .my-2
-          .row
-            .col
-              -# house trained
-              .my-2
-                .form-check.form-switch
-                  %input#house_trained_true.form-check-input{type: "checkbox", name: "house_trained", value: "true"}
-                  %label.form-check-label{for: "house_trained_true"} House trained
-            .col
-              -# declawed
-              .my-2
-                .form-check.form-switch
-                  %input#declawed_true.form-check-input{type: "checkbox", name: "declawed", value: "true"}
-                  %label.form-check-label{for: "declawed_true"} Declawed
-            .col
-              -# sepcial needs
-              .my-2
-                .form-check.form-switch
-                  %input#special_needs_true.form-check-input{type: "checkbox", name: "special_needs", value: "true"}
-                  %label.form-check-label{for: "special_needs_true"} Special needs
-        .d-sm-flex.flex-sm-row.justify-content-sm-around
-          -# sort
-          .my-2
-            %label Sort
-            .form-check
-              %input#sort_most_recent.form-check-input{type: "radio", name: "sort", value: "recent", checked: "true"}
-              %label.form-check-label{for: "sort_most_recent"} Most recent
-            .form-check
-              %input#sort_least_recent.form-check-input{type: "radio", name: "sort", value: "-recent"}
-              %label.form-check-label{for: "sort_least_recent"} Least recent
-            .form-check
-              %input#sort_nearest.form-check-input{type: "radio", name: "sort", value: "distance"}
-              %label.form-check-label{for: "sort_nearest"} Nearest
-            .form-check
-              %input#sort_farthest.form-check-input{type: "radio", name: "sort", value: "-distance"}
-              %label.form-check-label{for: "sort_farthest"} Farthest
-            .form-check
-              %input#random.form-check-input{type: "radio", name: "sort", value: "random"}
-              %label.form-check-label{for: "random"} Random
-
-    %input#reset.btn.btn-warning{type: "reset", value: "Reset"}/
-    %input#submit.btn.btn-success{type: "submit", value: "Search"}/
+        .row
+          .col-sm
+            .form-floating.my-2
+              %select#organization.form-control{name: "organization", "data-toggle" => "tooltip", title: "Accepts multiple values separated by commas (e.g. organization1,organization2)", "data-placement" => "top"}
+                %option{value: "", selected: "true", disabled: "true"} Select organization
+                %option{value: "AZ598"} Arizona Shih Tzu and Small Breed Rescue
+                %option{value: "AL32"} Baldwin County Animal Shelter
+                %option{value: "VA654"} Bay Beagle Rescue
+                %option{value: "NJ363"} Here Kitty Kitty
+                %option{value: "MN443"} Kitten Care Group MN
+                %option{value: "LA311"} Looking Fur Love Dog Rescue
+                %option{value: "MO556"} Montgomery City Animal Shelter/Project Precious Paws
+                %option{value: "PA546"} Pittsburgh Rat Lovers Club
+                %option{value: "MI649"} Purrfect Kitties
+                %option{value: "OR248"} Rose City Fox Terrier Rescue, Inc.
+                %option{value: "NV58"} Saints Of The West
+                %option{value: "CA2117"} Schwartz Family Animal Welfare Foundation
+                %option{value: "CA458"} Second Chance Pet Rescue
+                %option{value: "OH459"} Second Chance Rescue
+                %option{value: "MO30"} Second Chance Sheltie Rescue
+                %option{value: "FL65"} Siberian Husky Rescue of Florida Inc.
+                %option{value: "UT212"} South Utah Valley Animal Shelter
+                %option{value: "GA762"} Special Touch Animal Rescue
+                %option{value: "NY759"} Town of Olive Dog Shelter
+                %option{value: "NY1136"} Tuff Tails Animal Rescue
+              %label{for: "organization"} Organization
+        .row
+          .col-sm
+            -# good with children
+            .my-2
+              .form-check.form-switch
+                %input#good_with_children_true.form-check-input{type: "checkbox", name: "good_with_children", value: "true"}
+                %label.form-check-label{for: "good_with_children_true"} Good with children
+          .col-sm
+            -# good with dogs
+            .my-2
+              .form-check.form-switch
+                %input#good_with_dogs_true.form-check-input{type: "checkbox", name: "good_with_dogs", value: "true"}
+                %label.form-check-label{for: "good_with_dogs_true"} Good with dogs
+          .col-sm
+            -# good with cats
+            .my-2
+              .form-check.form-switch
+                %input#good_with_cats_true.form-check-input{type: "checkbox", name: "good_with_cats", value: "true"}
+                %label.form-check-label{for: "good_with_cats_true"} Good with cats
+        .row
+          .col-sm
+            -# house trained
+            .my-2
+              .form-check.form-switch
+                %input#house_trained_true.form-check-input{type: "checkbox", name: "house_trained", value: "true"}
+                %label.form-check-label{for: "house_trained_true"} House trained
+          .col-sm
+            -# declawed
+            .my-2
+              .form-check.form-switch
+                %input#declawed_true.form-check-input{type: "checkbox", name: "declawed", value: "true"}
+                %label.form-check-label{for: "declawed_true"} Declawed
+          .col-sm
+            -# sepcial needs
+            .my-2
+              .form-check.form-switch
+                %input#special_needs_true.form-check-input{type: "checkbox", name: "special_needs", value: "true"}
+                %label.form-check-label{for: "special_needs_true"} Special needs
+        .row
+          .col-sm
+            -# sort
+            .my-2
+              %label Sort
+              .form-check
+                %input#sort_most_recent.form-check-input{type: "radio", name: "sort", value: "recent", checked: "true"}
+                %label.form-check-label{for: "sort_most_recent"} Most recent
+              .form-check
+                %input#sort_least_recent.form-check-input{type: "radio", name: "sort", value: "-recent"}
+                %label.form-check-label{for: "sort_least_recent"} Least recent
+              .form-check
+                %input#sort_nearest.form-check-input{type: "radio", name: "sort", value: "distance"}
+                %label.form-check-label{for: "sort_nearest"} Nearest
+              .form-check
+                %input#sort_farthest.form-check-input{type: "radio", name: "sort", value: "-distance"}
+                %label.form-check-label{for: "sort_farthest"} Farthest
+              .form-check
+                %input#random.form-check-input{type: "radio", name: "sort", value: "random"}
+                %label.form-check-label{for: "random"} Random
+    .row
+      .btn.btn-group
+        %input#submit.btn.btn-success{type: "submit", value: "Search"}/
+        %input#reset.btn.btn-warning{type: "reset", value: "Reset"}/
 
   .container-fluid
     - (0...10).step do |row|
