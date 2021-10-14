@@ -1,6 +1,6 @@
 class PetsController < ApplicationController
   def search
-    @pets = SearchPetService.call(
+    @pets, @photos = SearchPetService.call(
       {
         type: params[:type],
         breed: params[:breed],
