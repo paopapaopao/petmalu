@@ -7,6 +7,16 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create(
+  email: 'emanpao@yahoo.com',
+  password: :password,
+  confirmed_at: DateTime.now,
+  first_name: :admin,
+  last_name: :istrator,
+  admin: true,
+  approved: true
+)
+
+User.create(
   email: 'admin@example.com',
   password: :password,
   confirmed_at: DateTime.now,
