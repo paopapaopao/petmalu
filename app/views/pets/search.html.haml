@@ -212,9 +212,8 @@
         - (0...2).step do |col|
           .col-sm-6
             .card{style: "width:400px"}
-              %img.card-img-top{alt: "No image", src: "#{@pets[2 * row + col].primary_photo_cropped}", style: "width:100%;height:400px"}/
+              %img.card-img-top{alt: "No image", src: "#{@photos[2 * row + col]}", style: "width:100%;height:400px"}/
               .card-body
-                %p.card-title ID: #{@pets[2 * row + col].id}
                 %p.card-title NAME: #{@pets[2 * row + col].name}
                 %p.card-text DESCRIPTION: #{@pets[2 * row + col].description}
                 %p.card-title EMAIL: #{@pets[2 * row + col].contact.email}
