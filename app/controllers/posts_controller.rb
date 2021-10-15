@@ -6,31 +6,11 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    # @posts = Post.all
-    @posts = policy_scope(Post).reverse
+    @posts = policy_scope(Post).order(created_at: :desc)
     @post = Post.new
+    # or
+    # @post = current_user.posts.build
   end
-
-  def upvote
-    @post = Post.find(params[:id])
-    if current_user.voted_up_on? @post
-      @post.unvote_by current_user
-    else
-      @post.upvote_by current_user
-    end
-    render "vote.js.erb"
-  end
-
-  def downvote
-    @post = Post.find(params[:id])
-    if current_user.voted_down_on? @post
-      @post.unvote_by current_user
-    else
-      @post.downvote_by current_user
-    end
-    render "vote.js.erb"
-  end
-
 
   # GET /posts/1 or /posts/1.json
   def show
@@ -84,6 +64,26 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def upvote
+    @post = Post.find(params[:id])
+    if current_user.voted_up_on? @post
+      @post.unvote_by current_user
+    else
+      @post.upvote_by current_user
+    end
+    render "vote.js.erb"
+  end
+
+  def downvote
+    @post = Post.find(params[:id])
+    if current_user.voted_down_on? @post
+      @post.unvote_by current_user
+    else
+      @post.downvote_by current_user
+    end
+    render "vote.js.erb"
   end
 
   private
