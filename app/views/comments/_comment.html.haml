@@ -1,11 +1,22 @@
-%p
-  %b Commenter:
-  = comment.user.full_name
-  %br
-  %b Comment:
-  = comment.body
-%p
-- if policy(comment).destroy?
-  = link_to 'Destroy Comment', [comment.post, comment], |
-    :confirm => 'Are you sure?',                        |
-    :method => :delete                                  |
+.d-flex.flex-row.p-3
+  %img.rounded-circle.mr-3{height: "40", src: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png", width: "45"}/
+  .w-100
+    .d-flex.justify-content-between.align-items-center
+      .d-flex.flex-row.align-items-center
+        %span.mr-2
+          = User.find(post.user_id).full_name
+    %p.text-justify.comment-text.mb-0
+      = comment.body
+    .d-flex.flex-row.user-feed
+      %span.wish
+        %i.fa.fa-thumbs-up
+          = render "posts/upvote_link", post: post
+      %span.wish
+        %i.fa.fa-thumbs-up
+          = render "posts/downvote_link", post: post
+
+-# %p
+-# - if policy(comment).destroy?
+-#   = link_to 'Destroy Comment', [comment.post, comment], |
+-#     :confirm => 'Are you sure?',                        |
+-#     :method => :delete                                  |
