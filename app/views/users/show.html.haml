@@ -1,3 +1,6 @@
-%h1= @user.full_name
-
-= render 'layouts/post'
+.container-fluid
+  .row.my-2
+    %h1= @user.full_name
+  .row.my-2
+    - @posts.each do |post|
+      = render partial: 'posts/post', locals: { post: post }
