@@ -1,7 +1,6 @@
-%h1 Editing post
-
-= render 'form'
-
-= link_to 'Show', @post
-\|
-= link_to 'Back', posts_path
+.container-fluid
+  %h1 Edit post
+  = render 'form'
+  .btn.btn-group
+    = link_to 'Show', @post, class: "btn btn-primary"
+    = link_to 'Back', posts_path, class: "btn btn-secondary"
