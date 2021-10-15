@@ -1,17 +1,6 @@
 .container-fluid
-  %p
-    %b Content:
-    = @post.content
-
-  %p
-    = image_tag @post.photo.url(:medium) if @post.photo.present?
-
-  %h2 Comments
-  = render @post.comments
+  .row.my-2
+    = render partial: 'post', locals: { post: @post }
 
   %h2 Add a comment:
   = render 'comments/form'
-
-  .btn.btn-group
-    = link_to 'Edit', edit_post_path(@post), class: "btn btn-primary" if policy(@post).update?
-    = link_to 'Back', posts_path, class: "btn btn-secondary"
