@@ -1,18 +1,20 @@
-= form_for @post do |f|
+= form_for @post, html: {class: "d-sm-flex flex-sm-column p-sm-5 was-validated"} do |f|
   - if @post.errors.any?
     #error_explanation
       %h2= "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"
       %ul
         - @post.errors.full_messages.each do |message|
           %li= message
-
-  .field.form-group
-    = f.label :content
-    = f.text_area :content, class: "form-control w-50"
-
-  .field
-    = f.label :photo
-    = f.file_field :photo
-
-  .actions
-    = f.submit
+  .row
+    .col-sm
+      .my-2
+        = f.label :content
+        = f.text_area :content, required: :true, class: "form-control"
+        .invalid-feedback Please fill out this field.
+        .valid-feedback Valid.
+  .row
+    .col-sm
+      .my-2
+        = f.label :photo
+        = f.file_field :photo, class: "form-control"
+  = f.submit :Submit, class: "btn btn-success"

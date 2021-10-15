@@ -6,18 +6,18 @@ Rails.application.routes.draw do
   authenticate :user do
     root 'posts#index'
 
-    get '/users/:id' => 'users#show', as: :user
-
     resources :posts do
+      resources :comments, only: %i[ create destroy ]
+
       member do
         patch "upvote", to: "posts#upvote"
         patch "downvote", to: "posts#downvote"
       end
-
-      resources :comments
     end
 
     get '/pets/search' => 'pets#search', as: :search_pet
+
+    get '/users/:id' => 'users#show', as: :user
   end
 
   authenticate :user, lambda { |u| u.admin == true } do
