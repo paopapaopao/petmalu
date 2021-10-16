@@ -69,9 +69,13 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 gem 'pundit'
-gem 'rails_admin', '~> 2.0.2'
 gem 'petfinder'
-gem 'paperclip'
+
+# aayusin pa
+gem 'mention_system'
 gem 'social-share-button'
+gem 'paperclip'
+
+gem 'rails_admin', '~> 2.0.2'
 gem 'rails-controller-testing'
 gem 'haml-rails'
