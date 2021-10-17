@@ -34,9 +34,9 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        format.js
         format.html { redirect_to @post, notice: "Post was successfully created." }
         format.json { render :show, status: :created, location: @post }
+        format.js
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @post.errors, status: :unprocessable_entity }
@@ -60,6 +60,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1 or /posts/1.json
   def destroy
     @post.destroy
+
     respond_to do |format|
       format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }
       format.json { head :no_content }
@@ -73,7 +74,8 @@ class PostsController < ApplicationController
     else
       @post.upvote_by current_user
     end
-    render "vote.js.erb"
+
+    render "vote.js.haml"
   end
 
   def downvote
@@ -83,7 +85,8 @@ class PostsController < ApplicationController
     else
       @post.downvote_by current_user
     end
-    render "vote.js.erb"
+
+    render "vote.js.haml"
   end
 
   private
