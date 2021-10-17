@@ -1,0 +1,5 @@
+\# $('#posts').prepend("#{render partial: 'form', locals: {path: {controller: "posts", action: (create/update)}}}");
+
+\# $("#posts").prepend("\#{escape_javascript( render @post)}");
+
+\# $("#post-display").prepend("\#{escape_javascript( render partial: "all_posts/display", locals: { post: @post, post_index: @posts_count + 1 })}");
