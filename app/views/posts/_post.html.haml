@@ -19,7 +19,7 @@
                   %a.dropdown-item{href: "/posts/#{post.id}"} Show
                 - if policy(post).update?
                   %li
-                    %a.dropdown-item{href: "/posts/#{post.id}/edit"} Edit
+                    = link_to 'Edit', edit_post_path(post), data: { bs_toggle: 'modal', bs_target: '#editPostModal', remote: true }, class: "dropdown-item"
                 - if policy(post).destroy?
                   %li
                     = link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?', remote: true }, class: "dropdown-item"
