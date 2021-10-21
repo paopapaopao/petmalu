@@ -1,0 +1,5 @@
+- if @post.errors.any?
+  alert('Error');
+- else
+  $("#post-#{@post.id}").replaceWith("#{escape_javascript render('post', post: @post)}");
+  $(".btn-close").click();
