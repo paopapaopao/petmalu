@@ -16,7 +16,8 @@
                   %i.fa.fa-ellipsis-v.text-black-50
               %ul.dropdown-menu
                 %li
-                  %a.dropdown-item{href: "/posts/#{post.id}"} Show
+                  -# %a.dropdown-item{href: "/posts/#{post.id}"}
+                  = link_to 'Show', post_path(post), data: { bs_toggle: 'modal', bs_target: '#showPostModal', remote: true }, class: "dropdown-item"
                 - if policy(post).update?
                   %li
                     = link_to 'Edit', edit_post_path(post), data: { bs_toggle: 'modal', bs_target: '#editPostModal', remote: true }, class: "dropdown-item"
