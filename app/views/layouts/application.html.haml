@@ -12,7 +12,6 @@
 
     / ---- Include the above in your HEAD tag --------
     %title My Awesome Login Page
-    %script{src: "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"}
     %link{crossorigin: "anonymous", href: "https://use.fontawesome.com/releases/v5.6.1/css/all.css", integrity: "sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP", rel: "stylesheet"}/
 
     -# search
@@ -20,6 +19,9 @@
 
     -# post
     %link{href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css", rel: "stylesheet"}/
+
+    -# jQuery
+    %script{:crossorigin => "anonymous", :integrity => "sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=", :src => "https://code.jquery.com/jquery-3.6.0.js"}
 
   %body
     = render 'layouts/navbar'
@@ -40,9 +42,3 @@
     -# aayusin pa
     -# JavaScript-Load-Image
     %script{src: "js/load-image.all.min.js"}
-
-    -# posts
-    %script{src: "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"}
-
-    -# jQuery
-    %script{:crossorigin => "anonymous", :integrity => "sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=", :src => "https://code.jquery.com/jquery-3.6.0.js"}
