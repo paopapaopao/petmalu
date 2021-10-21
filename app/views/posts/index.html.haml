@@ -4,3 +4,11 @@
   #posts.row.my-2
     - @posts.each do |post|
       = render partial: 'post', locals: { post: post }
+  -# edit post modal
+  #editPostModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "editPostModalLabel", tabindex: "-1"}
+    .modal-dialog
+      .modal-content
+        .modal-header
+          %h5#editPostModalLabel.modal-title Edit Post
+          %button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "modal", type: "button"}
+        #editPostForm
