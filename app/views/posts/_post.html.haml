@@ -22,7 +22,7 @@
                     %a.dropdown-item{href: "/posts/#{post.id}/edit"} Edit
                 - if policy(post).destroy?
                   %li
-                    %a.dropdown-item{href: "/posts/#{post.id}", "data-method" => :delete, data: { confirm: 'Are you sure?' } } Destroy
+                    = link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?', remote: true }, class: "dropdown-item"
           -# post content
           .p-2.px-3
             %span
