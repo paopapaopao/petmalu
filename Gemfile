@@ -66,16 +66,15 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+gem 'petfinder'
 gem 'rails-controller-testing'
 gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
 gem 'devise'
 gem 'pundit'
 
 
-gem 'petfinder'
 
 # aayusin pa
 gem 'social-share-button'
 
-gem 'rails_admin', '~> 2.0.2'
 gem 'haml-rails'
