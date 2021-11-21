@@ -38,7 +38,6 @@ group :development, :test do
 
   gem 'rspec-rails'
   gem 'factory_bot_rails'
-  gem 'faker'
   gem 'dotenv-rails'
 end
 
@@ -67,15 +66,17 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+gem 'rails-controller-testing'
+gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
 gem 'devise'
 gem 'pundit'
+
+
 gem 'petfinder'
 
 # aayusin pa
 gem 'mention_system'
 gem 'social-share-button'
-gem 'paperclip'
 
 gem 'rails_admin', '~> 2.0.2'
-gem 'rails-controller-testing'
 gem 'haml-rails'
