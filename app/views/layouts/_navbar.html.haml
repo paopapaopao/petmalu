@@ -16,9 +16,6 @@
       -# links
       %ul.navbar-nav
         - if current_user
-          - if current_user.admin
-            %li.nav-item
-              = link_to 'Admin', rails_admin_path, class: "nav-link"
           %li.nav-item
             = link_to 'Posts', posts_path, class: "nav-link"
           %li.nav-item
