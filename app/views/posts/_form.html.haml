@@ -12,9 +12,4 @@
         = f.text_area :content, required: :true, class: "form-control"
         .invalid-feedback Please fill out this field.
         .valid-feedback Valid.
-  .row
-    .col-sm
-      .my-2
-        = f.label :photo
-        = f.file_field :photo, class: "form-control"
   = f.submit :Submit, class: "btn btn-success"
