@@ -19,8 +19,4 @@ Rails.application.routes.draw do
 
     get '/users/:id' => 'users#show', as: :user
   end
-
-  authenticate :user, lambda { |u| u.admin == true } do
-    mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  end
 end
