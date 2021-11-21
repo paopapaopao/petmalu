@@ -5,5 +5,4 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   acts_as_votable
-  act_as_mentioner
 end

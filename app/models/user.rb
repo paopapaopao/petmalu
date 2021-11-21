@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable
 
-  validates :first_name, presence: true
-  validates :last_name, presence: true
+  # validates :first_name, presence: true
+  # validates :last_name, presence: true
 
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -16,6 +16,7 @@ class User < ApplicationRecord
   after_create :set_approved_before_update
   after_update :admin_new_user_approval
   after_update :user_approved
+
   acts_as_voter
 
   def full_name
