@@ -75,7 +75,6 @@ gem 'pundit'
 gem 'petfinder'
 
 # aayusin pa
-gem 'mention_system'
 gem 'social-share-button'
 
 gem 'rails_admin', '~> 2.0.2'
